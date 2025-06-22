@@ -1,0 +1,44 @@
+<link href="https://fonts.cdnfonts.com/css/lemonmilk" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personažų gimtadieniai</title>
+    <link rel="stylesheet" href="gimtadieniai.css">
+<link rel="icon" href="https://i.servimg.com/u/f57/13/40/85/94/untitl13.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="character-list">
+            <h2>Personažų gimtadieniai</h2>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="ieškoti personažo..." id="character-search">
+                <div class="search-results" id="search-results"></div>
+            </div>
+            <div class="special-dates">
+                <div class="special-date-group" id="this-week-birthdays">
+                    <h3>Gimtadieniai šią savaitę</h3>
+                    <div class="special-date-list"></div>
+                </div>
+                <div class="special-date-group" id="this-month-birthdays">
+                    <h3>Likę gimtadieniai šį mėnesį</h3>
+                    <div class="special-date-list"></div>
+                </div>
+            </div>
+            <div class="character-cards-container" id="character-cards"></div>
+        </div>
+
+        <div class="visualization-container">
+            <div class="month-grid" id="month-grid"></div>
+            <div class="character-detail-view" id="character-detail-view" style="display: none;">
+                <button class="go-back-button">← GRĮŽTI Į SĄRAŠĄ</button>
+                <div class="character-detail-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="gimtadieniai.js"></script>
+</body>
+</html>
