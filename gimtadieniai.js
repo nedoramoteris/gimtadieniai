@@ -169,11 +169,20 @@ document.addEventListener('DOMContentLoaded', function() {
         return formatted;
     }
 
-    // Render character cards in the sidebar
+    // Render character cards in the sidebar (alphabetically sorted)
     function renderCharacterCards() {
         characterCardsContainer.innerHTML = '';
         
-        characters.forEach(character => {
+        // Sort characters alphabetically by name
+        const sortedCharacters = [...characters].sort((a, b) => {
+            const nameA = a.name.toLowerCase();
+            const nameB = b.name.toLowerCase();
+            if (nameA < nameB) return -1;
+            if (nameA > nameB) return 1;
+            return 0;
+        });
+        
+        sortedCharacters.forEach(character => {
             const card = document.createElement('div');
             card.className = 'character-card';
             card.innerHTML = `
