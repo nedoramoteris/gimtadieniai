@@ -301,7 +301,7 @@ document.addEventListener('DOMContentLoaded', function() {
             html += `
                 <div class="detail-info-item">
                     <span class="detail-info-label">Amžius mirties metu:</span>
-                    <span>${ageAtDeath} metai</span>
+                    <span>${ageAtDeath} m.</span>
                 </div>
                 <div class="detail-info-item">
                     <span class="detail-info-label">Mirties data:</span>
@@ -334,7 +334,7 @@ document.addEventListener('DOMContentLoaded', function() {
             html += `
                 <div class="detail-info-item">
                     <span class="detail-info-label">Dabartinis amžius:</span>
-                    <span>${age} metai</span>
+                    <span>${age} m.</span>
                 </div>
                 <div class="detail-info-item">
                     <span class="detail-info-label">Kitas gimtadienis:</span>
