@@ -1,8 +1,9 @@
 body, html {
-    overflow: auto;
+    overflow: hidden;
     background-color: #21211F;
     font-family: 'Montserrat', sans-serif;
     color: #6E6761;
+  height:100%;
 }
 
 .container {
