@@ -1,4 +1,5 @@
 body, html {
+  height: 100%;
     overflow: hidden;
     background-color: #21211F;
     font-family: 'Montserrat', sans-serif;
@@ -13,12 +14,13 @@ width:260px;
 z-index: 9999 !important;} 
 .container {
     display: flex;
+  height:100%;
 }
 
 /* Character list styles */
 .character-list {
     width: 220px;
-  height: 100vh;
+  height: 90%;
   margin-top:80px;
     overflow-y: auto;
     padding: 20px;
