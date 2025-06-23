@@ -14,7 +14,7 @@ width:260px;
 z-index: 9999 !important;} 
 .container {
     display: flex;
-  height:100%;
+  height:95%;
 }
 
 /* Character list styles */
