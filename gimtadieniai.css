@@ -515,46 +515,34 @@ prilipdytas h2 {
 }
 
 #today-birthdays h3 {
-    color: #BFA980 !important;
+    color: #9c8672 !important;
     font-weight: bold !important;
     text-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
 }
 
 .today-list .character-card {
-    background: linear-gradient(to right, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
-    border-left: 3px solid #BFA980;
+    background: linear-gradient(to right, rgba(68, 75, 68, 0.1), rgba(68, 75, 68, 0.05));
+    border-left: 3px solid #444b44;
     animation: pulse 2s infinite;
 }
 
 .today-list .character-card:hover {
-    background: linear-gradient(to right, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
+    background: linear-gradient(to right, rgba(68, 75, 68, 0.4), rgba(68, 75, 68, 0.2));
     transform: translateX(5px) scale(1.02);
 }
 
 @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
-    70% { box-shadow: 0 0 0 5px rgba(212, 175, 55, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+    0% { box-shadow: 0 0 0 0 rgba(68, 75, 68, 0.4); }
+    70% { box-shadow: 0 0 0 5px rgba(68, 75, 68, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(68, 75, 68, 0); }
 }
 
 .today-list .character-name {
-    color: #BFA980;
+    color: #9c8672;
     font-weight: bold;
+  text-transform:uppercase;
 }
 
 .today-list .character-birthdate {
-    color: #BFA980 !important;
-}
-
-/* Dark mode adjustments */
-.dark-mode #today-birthdays h3 {
-    color: #d4af37 !important;
-}
-
-.dark-mode .today-list .character-card {
-    background: linear-gradient(to right, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
-}
-
-.dark-mode .today-list .character-card:hover {
-    background: linear-gradient(to right, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.2));
+    color: #9c8672 !important;
 }
