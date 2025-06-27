@@ -515,15 +515,13 @@ prilipdytas h2 {
 }
 
 #today-birthdays h3 {
-background-image: var(--daddy-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+color:#a2988e;
   font-weight: bold !important;
 }
 
 .today-list .character-card {
     background: linear-gradient(to right, rgba(68, 75, 68, 0.4), rgba(156, 134, 114, 0.2));
-    border-left: 3px solid #444b44;
+    border-left: 0px solid #444b44;
     animation: pulse 2s infinite;
 }
 
