@@ -327,11 +327,32 @@ document.addEventListener('DOMContentLoaded', function() {
             const nextBirthday = new Date(nextBirthdayYear, birthMonth - 1, birthDay);
             const timeUntilBirthday = nextBirthday - today;
             const daysUntil = Math.ceil(timeUntilBirthday / (1000 * 60 * 60 * 24));
-            const weeksUntil = Math.floor(daysUntil / 7);
-            const monthsUntil = Math.floor(daysUntil / 30);
+            
+            // Calculate months, weeks, and days separately
+            let monthsUntil = 0;
+            let weeksUntil = 0;
+            let remainingDays = daysUntil;
+            
+            // Calculate months (approximately)
+            if (remainingDays >= 30) {
+                monthsUntil = Math.floor(remainingDays / 30);
+                remainingDays = remainingDays % 30;
+            }
+            
+            // Calculate weeks from remaining days
+            if (remainingDays >= 7) {
+                weeksUntil = Math.floor(remainingDays / 7);
+                remainingDays = remainingDays % 7;
+            }
             
             // Calculate turning age
             const turningAge = nextBirthdayYear - birthYear;
+            
+            // Format the time until string
+            let timeUntilString = '';
+            if (monthsUntil > 0) timeUntilString += `${monthsUntil} mėn. `;
+            if (weeksUntil > 0) timeUntilString += `${weeksUntil} sav. `;
+            timeUntilString += `${remainingDays} d.`;
             
             html += `
                 <div class="detail-info-item">
@@ -344,7 +365,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="detail-info-item">
                     <span class="detail-info-label">Iki kito gimtadienio liko:</span>
-                    <span>${monthsUntil} mėn., ${weeksUntil} sav., ${daysUntil % 7} d.</span>
+                    <span>${timeUntilString}</span>
                 </div>
             `;
         }
