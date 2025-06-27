@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchResults = document.getElementById('search-results');
     const thisWeekBirthdays = document.querySelector('#this-week-birthdays .special-date-list');
     const thisMonthBirthdays = document.querySelector('#this-month-birthdays .special-date-list');
+    const todayBirthdaysContainer = document.getElementById('today-birthdays');
+    const todayBirthdaysList = document.querySelector('#today-birthdays .today-list');
 
     let characters = [];
     let currentView = 'grid';
@@ -397,13 +399,49 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Update special dates (this week and this month birthdays)
+    // Update special dates (today, this week and this month birthdays)
     function updateSpecialDates() {
         const today = new Date();
         const currentMonth = today.getMonth() + 1;
         const currentDay = today.getDate();
         
-        // Get birthdays in the next 7 days
+        // Get birthdays today
+        const todayBirthdays = characters.filter(character => {
+            if (!character.birthDate) return false;
+            
+            const birthMonth = character.birthDate.month;
+            const birthDay = character.birthDate.day;
+            
+            return birthMonth === currentMonth && birthDay === currentDay;
+        });
+        
+        // Show/hide today's birthdays section based on whether there are any
+        if (todayBirthdays.length > 0) {
+            todayBirthdaysContainer.style.display = 'block';
+            
+            // Sort by name
+            todayBirthdays.sort((a, b) => a.name.localeCompare(b.name));
+            
+            // Render today's birthdays with special styling
+            todayBirthdaysList.innerHTML = '';
+            todayBirthdays.forEach(character => {
+                const card = document.createElement('div');
+                card.className = 'character-card small-card';
+                card.innerHTML = `
+                    <img class="character-image" src="${character.image}" alt="${character.name}" onerror="this.src='https://via.placeholder.com/40?text=?'">
+                    <div class="character-info">
+                        <div class="character-name">${character.name}</div>
+                        <div class="character-birthdate">${formatDate(character.birthDate)}</div>
+                    </div>
+                `;
+                card.addEventListener('click', () => showCharacterDetail(character));
+                todayBirthdaysList.appendChild(card);
+            });
+        } else {
+            todayBirthdaysContainer.style.display = 'none';
+        }
+        
+        // Get birthdays in the next 7 days (excluding today)
         const upcomingThisWeek = characters.filter(character => {
             if (!character.birthDate) return false;
             
@@ -411,7 +449,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const birthDay = character.birthDate.day;
             
             return birthMonth === currentMonth && 
-                   birthDay >= currentDay && 
+                   birthDay > currentDay && 
                    birthDay <= currentDay + 7;
         });
         
